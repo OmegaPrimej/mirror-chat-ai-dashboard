@@ -1,3 +1,8 @@
+     <link rel="stylesheet" href=".github/NexusFlux.css">
+     
+
+
+
 # mirror-chat-ai-dashboard
 Mirror ai hive chat x11
 We're building **Mirror Chat**, a Spring Boot application that combines an AI chat interface with custom action buttons (Hive, X11, Sandbox) and integrates with external systems like DeepSeek AI, Hive nodes, X11 repositories, and isolated sandbox environments.
