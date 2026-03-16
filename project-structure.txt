@@ -1,0 +1,107 @@
+mirror-chat-spring-ai/
+├── .github/                         # GitHub specific files
+│   └── workflows/                    # CI/CD pipelines
+│       ├── maven-build.yml
+│       └── docker-publish.yml
+│
+├── .mvn/                             # Maven wrapper files
+│   └── wrapper/
+│       ├── maven-wrapper.properties
+│       └── maven-wrapper.jar
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── mirrorchat/
+│   │   │               ├── MirrorChatApplication.java
+│   │   │               │
+│   │   │               ├── config/                           # Configuration classes
+│   │   │               │   ├── SecurityConfig.java           # Spring Security setup [citation:6]
+│   │   │               │   ├── WebClientConfig.java          # WebClient for APIs [citation:5]
+│   │   │               │   ├── WebConfig.java                # WebMvc config, WebJars [citation:4]
+│   │   │               │   ├── CacheConfig.java              # Caching setup [citation:5]
+│   │   │               │   └── AsyncConfig.java              # Async task execution
+│   │   │               │
+│   │   │               ├── controller/                        # REST endpoints [citation:3]
+│   │   │               │   ├── ChatController.java           # /api/chat/*
+│   │   │               │   ├── ActionController.java         # /api/action/* (Hive, X11, Sandbox)
+│   │   │               │   └── DashboardController.java      # Serves Thymeleaf UI
+│   │   │               │
+│   │   │               ├── service/                           # Business logic [citation:3]
+│   │   │               │   ├── ChatService.java
+│   │   │               │   ├── DeepSeekService.java          # AI API integration
+│   │   │               │   ├── HiveService.java              # Hive node communication
+│   │   │               │   ├── X11Service.java               # Git repo parsing [citation:1]
+│   │   │               │   ├── SandboxService.java           # Docker/sandbox execution
+│   │   │               │   └── CustomUserDetailsService.java # Spring Security [citation:6]
+│   │   │               │
+│   │   │               ├── repository/                        # Data access layer [citation:3]
+│   │   │               │   ├── ChatSessionRepository.java
+│   │   │               │   ├── MessageRepository.java
+│   │   │               │   └── ActionLogRepository.java
+│   │   │               │
+│   │   │               ├── model/                             # JPA Entities [citation:3]
+│   │   │               │   ├── ChatSession.java
+│   │   │               │   ├── Message.java
+│   │   │               │   ├── ActionLog.java
+│   │   │               │   └── X11Window.java                # Non-entity POJO
+│   │   │               │
+│   │   │               ├── dto/                               # Data Transfer Objects [citation:5][citation:8]
+│   │   │               │   ├── ChatRequest.java
+│   │   │               │   ├── ChatResponse.java
+│   │   │               │   ├── ActionRequest.java
+│   │   │               │   └── ActionResponse.java
+│   │   │               │
+│   │   │               ├── exception/                         # Global error handling [citation:5]
+│   │   │               │   ├── GlobalExceptionHandler.java   # @ControllerAdvice
+│   │   │               │   └── ResourceNotFoundException.java
+│   │   │               │
+│   │   │               ├── security/                          # Security components [citation:6]
+│   │   │               │   ├── JwtUtil.java
+│   │   │               │   ├── annotation/
+│   │   │               │   │   └── RequiresRole.java
+│   │   │               │   └── aspect/
+│   │   │               │       └── RoleAspect.java
+│   │   │               │
+│   │   │               └── util/                              # Helper utilities
+│   │   │                   └── SecurityUtils.java
+│   │   │
+│   │   └── resources/
+│   │       ├── application.properties                         # Main config
+│   │       ├── application-dev.properties                     # Dev profile
+│   │       ├── application-prod.properties                    # Production profile
+│   │       ├── static/                                         # Static assets
+│   │       │   ├── css/
+│   │       │   │   └── style.css
+│   │       │   └── js/
+│   │       │       └── dashboard.js
+│   │       └── templates/                                      # Thymeleaf templates [citation:4]
+│   │           ├── dashboard.html                             # Main UI
+│   │           ├── layout.html                                # Layout template
+│   │           ├── fragments/
+│   │           │   └── forms.html                             # Form fragments
+│   │           └── error.html                                 # Custom error page
+│   │
+│   └── test/                                                   # Test suite [citation:8]
+│       ├── java/
+│       │   └── com/
+│       │       └── example/
+│       │           └── mirrorchat/
+│   │               ├── controller/                            # Web layer tests
+│   │               ├── service/                               # Unit tests
+│   │               ├── repository/                            # @DataJpaTest
+│   │               └── integration/                           # @SpringBootTest
+│       └── resources/
+│           └── application-test.properties
+│
+├── .gitignore
+├── README.md
+├── pom.xml                                                     # Maven build file
+├── mvnw                                                        # Maven wrapper (Linux)
+├── mvnw.cmd                                                    # Maven wrapper (Windows)
+├── Dockerfile                                                  # Containerization [citation:6][citation:7]
+├── docker-compose.yml                                          # Local orchestration [citation:6]
+├── deployment.yaml                                             # Kubernetes deployment [citation:6]
+└── service.yaml                                                # Kubernetes service
