@@ -1,5 +1,4 @@
-     <link rel="stylesheet" href=".github/NexusFlux.css">
-     
+
 
 
 
@@ -9,7 +8,9 @@ We're building **Mirror Chat**, a Spring Boot application that combines an AI ch
 
 Your concerns about "pollination through anchorband" (potential attack propagation), memory leaks, DNS dumps, DDoS attacks, fire hose leaks, and API vulnerabilities are exactly the kind of security and stability threats we've architected against. Let me walk you through how each layer of our design counters these risks.
 
----
+  ![Image](./received_1436454444520023.jpeg)
+   
+
 
 ## 🔒 How Mirror Chat Defends Against the Threats You Mentioned
 
